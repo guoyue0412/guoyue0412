@@ -18,8 +18,8 @@
 
 基于 URDF 将异构关节配置表示为四视角动作视频，复用视频骨干联合建模观测与动作；通过 **training-free 多视角几何匹配**恢复可执行关节轨迹，无需本体专属动作解码头或真实相机外参对齐。
 
-- **仿真评测：**RoboTwin2.0 全部 50 项任务，Clean / Randomized 两种设置的平均成功率为 **88.98%**。
-- **跨本体验证：**另一组联合训练实验以固定权重支持四种真机平台；放置与擦拭两项共同任务的平台平均成功率为 **85%–90%**。
+- **仿真评测：** RoboTwin2.0 全部 50 项任务，Clean / Randomized 两种设置的平均成功率为 **88.98%**。
+- **跨本体验证：** 另一组联合训练实验以固定权重支持四种真机平台；放置与擦拭两项共同任务的平台平均成功率为 **85%–90%**。
 
 ### WEAVE-0.5 · 多流具身世界模型
 
@@ -29,8 +29,8 @@
 
 通过原生分辨率独立编码、共享虚拟画布与跨流注意力，统一可变视角、混合分辨率及多模态观测；单一模型支持未来预测、跨视角补全和模态互转。
 
-- **我的工作：**参与模型训练与数据消融，搭建评测平台，开展 bad case 分析与数据回流；建设 YouTube 视频管线和 Sim–Real 成对数据生产链路。
-- **论文结果：**MV-261 上联合生成深度流，使主视角 PSNR 从 **15.74 提升至 17.87 dB（+2.13 dB）**；论文报告 RBench 第一、TriWorldBench 第二。
+- **我的工作：** 参与模型训练与数据消融，搭建评测平台，开展 bad case 分析与数据回流；建设 YouTube 视频管线和 Sim–Real 成对数据生产链路。
+- **论文结果：** MV-261 上联合生成深度流，使主视角 PSNR 从 **15.74 提升至 17.87 dB（+2.13 dB）**；论文报告 RBench 第一、TriWorldBench 第二。
 
 <sub>以上研究指标来自论文报告；榜单名次对应论文中的评测快照。Dream4ACT 的全任务评测与跨本体实验使用不同 checkpoint。</sub>
 
@@ -81,9 +81,9 @@
 
 ## 技术与其他实践
 
-- **模型与训练：**PyTorch、JAX、DeepSpeed；DiT、Diffusion / Flow Matching、VLM / VLA、多机多卡训练。
-- **数据、仿真与部署：**LeRobot / OXE、DROID、EgoDex、AgiBot、RoboTwin；Isaac Sim、MuJoCo、ROS2、TensorRT / ONNX。
-- **评测与工程：**LIBERO、CALVIN、RoboTwin、RoboDojo；Python、ROS、MATLAB，C++ 入门；RLT 等在线强化学习方法复现实践。
-- **机器人系统：**曾任复合机器人月球探索团队负责人，负责全向底盘、5-DOF 机械臂与多传感器融合，获中国机器人及人工智能大赛国家一等奖；工程实践与创新能力大赛「智能+」赛道全国总决赛金奖。
+- **模型与训练：** PyTorch、JAX、DeepSpeed；DiT、Diffusion / Flow Matching、VLM / VLA、多机多卡训练。
+- **数据、仿真与部署：** LeRobot / OXE、DROID、EgoDex、AgiBot、RoboTwin；Isaac Sim、MuJoCo、ROS2、TensorRT / ONNX。
+- **评测与工程：** LIBERO、CALVIN、RoboTwin、RoboDojo；Python、ROS、MATLAB，C++ 入门；RLT 等在线强化学习方法复现实践。
+- **机器人系统：** 曾任复合机器人月球探索团队负责人，负责全向底盘、5-DOF 机械臂与多传感器融合，获中国机器人及人工智能大赛国家一等奖；工程实践与创新能力大赛「智能+」赛道全国总决赛金奖。
 
 我持续整理 [论文阅读笔记](https://github.com/guoyue0412/reading-journal-sites/tree/main/content/papers) 与 [具身研究资料](https://guoyue0412.github.io/embodied-frontier/)，欢迎交流世界模型、机器人学习与评测。
