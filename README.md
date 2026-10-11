@@ -34,6 +34,18 @@
 
 <sub>以上研究指标来自论文报告；榜单名次对应论文中的评测快照。Dream4ACT 的全任务评测与跨本体实验使用不同 checkpoint。</sub>
 
+### WAM · 未来表征蒸馏与动作预测
+
+智源 BAAI · 框架设计与实现
+
+以 Cosmos-Predict2.5-2B 为视频教师，通过 PolicyDiT 学习未来相关表征，再由 ActionExpert 解码动作序列。教师仅由视频损失 `L_video` 更新；学生的表征对齐损失 `L_align` 与动作损失 `L_action` 均不更新教师。
+
+统一 DROID、AgiBot、RoboTwin 与 EgoDex 的动作表示为**头部相机坐标系下、相对固定当前帧 t₀ 的 EE pose delta**，结合多流 RoPE 与视角特征向量开展多视角建模。部署时移除视频教师；PolicyDiT 一次表征前向后，动作模块仍需多步采样。
+
+[![WAM 教师–学生架构及各损失的梯度更新路径](./assets/baai/wam-architecture.png)](https://github.com/guoyue0412/guoyue0412/blob/main/projects/baai-wam.md)
+
+[查看 WAM 架构、delta pose 示意与双视角 / 三视角实验](https://github.com/guoyue0412/guoyue0412/blob/main/projects/baai-wam.md)
+
 ### Colugo · 多尺度潜在世界模型引导 VLA
 
 协作研究 · 2026.04.26–2026.06.04
@@ -48,11 +60,11 @@
 
 **智源人工智能研究院（BAAI）· 认知大模型组｜2026.04–2026.07.28**
 
-搭建 Cosmos-Predict2.5-2B → PolicyDiT → ActionExpert / ActionDecoderDiT 三阶段 WAM，统一多源异构动作表示，开展 EgoDex → Ego2Robot 转换与教师–学生蒸馏。负责 DiT4DiT 数据采集、训练和 OpenArm 真机部署，完成酒店场景证件交互与双臂叠衣复现。
+负责酒店场景中 DiT4DiT 的数据采集、模型训练与 OpenArm 真机部署，实现证件交互；OpenArms 双臂叠衣为复现验证。负责 WAM 框架设计与实现，开展异构动作表征统一、Ego 数据处理与教师–学生蒸馏。在 Franka 平台完成 **100 次 rollout，成功率约 80%**；采用新本体后训练学习曲线的坡度对比开展消融验证。
 
 **道通智能 · 前沿预研｜2025.11–2026.04**
 
-负责 OpenPI π₀.₅ SFT 与 ROS2 真机部署；将真机纠偏与恢复数据回流用于 **纠偏 SFT**，使工厂抓取放置任务的真机成功率从 **40% 提升至 70%**。构建 JAX BPTT 可微仿真与残差动力学管线，训练吞吐达到原来的 **10 倍**，动力学预测误差降至原来的 **十分之一**。
+负责 OpenPI π₀.₅ SFT 与 ROS2 真机部署，LIBERO-10 仿真评测平均成功率为 **96.6%**；将真机纠偏与恢复数据回流用于 **纠偏 SFT**，使工厂抓取放置任务的真机成功率从 **40% 提升至 70%**。构建 JAX BPTT 可微仿真与残差动力学管线，训练吞吐达到原来的 **10 倍**，动力学预测误差降至原来的 **十分之一**。
 
 ## 代表性演示
 
@@ -65,7 +77,7 @@
         <img src="https://raw.githubusercontent.com/guoyue0412/reading-journal-sites/main/assets/thumbs/openarms.jpg" alt="BAAI OpenArms 双臂叠衣真机演示的视频预览" width="420">
       </a>
       <br><strong>OpenArms 双臂叠衣</strong><br>
-      DiT4DiT 跨本体后训练与真机部署
+      DiT4DiT 在 OpenArm 上的复现验证
     </td>
     <td width="50%">
       <a href="https://github.com/guoyue0412/reading-journal-sites/blob/main/assets/evidence/daotong-vla/vla_realrobot_test.mp4">
