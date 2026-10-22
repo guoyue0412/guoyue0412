@@ -6,9 +6,19 @@
 
 我关注如何把视频预测与机器人动作连接起来：用统一的视觉动作表示连接不同本体，用多流建模整合多视角与多模态观测，再通过数据、评测和真机反馈迭代模型。
 
-[项目与演示](https://github.com/guoyue0412/reading-journal-sites/blob/main/projects.md) · [论文阅读](https://github.com/guoyue0412/reading-journal-sites/tree/main/content/papers) · [具身研究笔记](https://guoyue0412.github.io/embodied-frontier/) · [邮件联系](mailto:1601954018@qq.com)
+[大小脑框架](https://guoyue0412.github.io/reading-journal-sites/#robodojo) · [项目与演示](https://github.com/guoyue0412/reading-journal-sites/blob/main/projects.md) · [论文阅读](https://github.com/guoyue0412/reading-journal-sites/tree/main/content/papers) · [具身研究笔记](https://guoyue0412.github.io/embodied-frontier/) · [邮件联系](mailto:1601954018@qq.com)
 
 ## 研究工作
+
+### RoboDojo · 大小脑协同框架
+
+**在研 · VLM 任务决策与进度监控 × WAM 动作执行**
+
+面向长程机器人操作，研究由上层任务决策与下层动作预测协同的分层框架。
+
+- **大脑（VLM）：** 结合整体任务与当前、历史多视角观测，维护子目标和执行进度，对小脑提出的动作候选进行高层判断。
+- **小脑（WAM / OminiEWM）：** 以任务指令、观测历史和本体状态为条件，预测短时动作序列。
+- **协同反馈：** 将执行后的实测观测纳入历史，为后续的进度判断与动作预测提供反馈。
 
 ### Dream4ACT · 跨本体视觉动作接口
 
